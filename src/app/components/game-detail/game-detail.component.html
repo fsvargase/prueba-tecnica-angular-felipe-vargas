@@ -1,21 +1,54 @@
-<div class="row justify-content-center mt-5" *ngIf="game$ | async as game">
-
-    <div class="card text-bg-dark">
-        <img src="{{game.thumbnail}}" class="card-img" alt="{{game.title}}">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small>Last updated 3 mins ago</small></p>
-        </div>
+<div class="row d-flex justify-content-center align-items-center" style="height: 90vh; width: 100%;" *ngIf="game$ | async as game">
+  <div class="col-lg-6 col-sm-12 d-flex justify-content-center  align-items-center pb-5">
+    <div class="card" style="width: 100%;">
+      <div class="card-header d-flex justify-content-between">
+        <h5 class="card-title">{{game.title}}</h5>
+        <button (click)="onGoBack()" class="btn btn-primary">
+          Regresar
+        </button>
       </div>
-      <div class="card border-success mb-3" style="max-width: 18rem;">
-        <div class="card-header bg-transparent border-success">Header</div>
-        <div class="card-body text-success">
-          <h5 class="card-title">Success card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <div class="card-footer bg-transparent border-success">Footer</div>
+      <img src="{{game.thumbnail}}" class="card-img-top" alt="...">
+      <div class="card-body">            
+        <p class="card-text">{{game.short_description}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between"><span>Status:</span>
+          <span class="badge text-bg-primary">{{game.status}}</span>
+          </li>
+        <li class="list-group-item d-flex justify-content-between"><span>Género:</span>{{game.genre}}</li>
+        <li class="list-group-item d-flex justify-content-between"><span>Plataforma:</span>{{game.platform}}</li>
+        <li class="list-group-item d-flex justify-content-between"><span>Publicado por:</span>{{game.publisher}}</li>
+        <li class="list-group-item d-flex justify-content-between"><span>Desarrollador:</span>{{game.developer}}</li>
+        <li class="list-group-item d-flex justify-content-between"><span>Fecha de Lanzamiento:</span>{{game.release_date}}</li>
+      </ul>
+      <div class="card-body d-flex justify-content-around">
+        <a href="{{game.game_url}}" target="_blank" class="btn btn-primary">Sitio del Juego</a>
+        <a href="{{game.freetogame_profile_url}}" target="_blank" class="btn btn-primary ">Juega Gratis</a>
+      </div>
     </div>
-  <button (click)="onGoBack()" class="btn btn-primary btn-lg mt-3">
-    Back
-  </button>
+  </div>
+  <div *ngIf="game.minimum_system_requirements"  class="row">
+    <div class="col-12">
+      <div class="card" >
+        <div class="card-header">
+          Requerimientos mínimos
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">S.O: {{game.minimum_system_requirements.os}}</li>
+          <li class="list-group-item">Procesador: {{game.minimum_system_requirements.processor}}</li>
+          <li class="list-group-item">Memoria: {{game.minimum_system_requirements.memory}}</li>
+          <li class="list-group-item">Gráficos: {{game.minimum_system_requirements.graphics}}</li>
+          <li class="list-group-item">Almacenamiento: {{game.minimum_system_requirements.storage}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1>ScreenShots</h1>
+      <div class="col-12" >
+        <img *ngFor="let image of game.screenshots " class="img-thumbnail galeria_img" src="{{image.image}}"  alt="galery-image" >
+      </div>
+    </div>
+  </div>
+</div>

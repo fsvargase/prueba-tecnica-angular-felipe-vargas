@@ -1,31 +1,42 @@
 <div class="album py-5 bg-light">
     <div class="container">
-        <div class="row">
-            <input type="text" [(ngModel)]="textFilter" (input)="filterGamesByName()">
-            <select [(ngModel)]="selectedValue" (change)="onChangePlatform()">
-                <option  value="all">Todos</option>
-                <option  value="pc">PC</option>
-                <option  value="browser">NAVEGADOR</option>
-             </select>
-             <select [(ngModel)]="selectedGendre" (change)="onChangeGendre()">
-                <option  value="all">Todos</option>
-                <option  value="Shooter">Shooter</option>
-                <option  value="MMOARPG">MMOARPG</option>
-                <option  value="ARPG">ARPG</option>
-                <option  value="Strategy">Strategy</option>
-                <option  value="MMORPG">MMORPG</option>
-                <option  value="Fighting">Fighting</option>
-                <option  value="Action RPG">Action RPG</option>
-                <option  value="Battle Royale">Battle Royale</option>
-                <option  value="MOBA">MOBA</option>
-                <option  value="Sports">Sports</option>
-                <option  value="Racing">Racing</option>
-                <option  value="Card Game">Card Game</option>
-                <option  value="MMO">MMO</option>
-                <option  value="Social">Social</option>
-                <option  value="MMORPG">MMORPG</option> 
-                <option  value="Fantasy">Fantasy</option>
-             </select>
+        <div class="row pb-5">
+            <div class="row gx-3 gy-2 align-items-center">
+                <div class="col-lg-4  col-md-4 col-sm-12">
+                  <label for="name">Name</label>
+                  <input type="text"  class="form-control" placeholder="Buscar por Nombre..." [(ngModel)]="textFilter" id="name" (input)="filterGamesByName()">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <label for="platform">Plataforma</label>
+                    <select [(ngModel)]="selectedValue" class="form-select" id="platform" (change)="onChangePlatform()">
+                        <option  value="all">Todos</option>
+                        <option  value="pc">PC</option>
+                        <option  value="browser">NAVEGADOR</option>
+                     </select>
+                </div>
+                <div class="col-lg-4  col-md-4 col-sm-12">
+                  <label for="gender">Género</label>
+                  <select [(ngModel)]="selectedGendre" class="form-select" id="gender"(change)="onChangeGendre()">
+                    <option  value="all" >Todos</option>
+                    <option  value="Shooter">Shooter</option>
+                    <option  value="MMOARPG">MMOARPG</option>
+                    <option  value="ARPG">ARPG</option>
+                    <option  value="Strategy">Strategy</option>
+                    <option  value="MMORPG">MMORPG</option>
+                    <option  value="Fighting">Fighting</option>
+                    <option  value="Action RPG">Action RPG</option>
+                    <option  value="Battle Royale">Battle Royale</option>
+                    <option  value="MOBA">MOBA</option>
+                    <option  value="Sports">Sports</option>
+                    <option  value="Racing">Racing</option>
+                    <option  value="Card Game">Card Game</option>
+                    <option  value="MMO">MMO</option>
+                    <option  value="Social">Social</option>
+                    <option  value="MMORPG">MMORPG</option> 
+                    <option  value="Fantasy">Fantasy</option>
+                 </select>
+                </div>
+              </div>
         </div>
         <div class="row">
             <div class="col-md-4" *ngFor="let game of games | paginate: {itemsPerPage: 6, currentPage: page} ">

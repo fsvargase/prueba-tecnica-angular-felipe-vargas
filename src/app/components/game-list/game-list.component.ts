@@ -36,7 +36,6 @@ export class GameListComponent implements OnInit {
               }
               return acc;
             },[]);
-            console.log(this.generos);
         }else{
             this.games = [];  
         }
