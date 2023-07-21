@@ -14,7 +14,6 @@ export class GameListComponent implements OnInit {
   textFilter:string='';
   selectedValue:string='all';
   selectedGendre:string='all';
-  generos: string[] = [];
 
 
   public page!: number;
@@ -30,12 +29,6 @@ export class GameListComponent implements OnInit {
         if(res.length){
             this.games = res;
             this.gamesTotal= res;
-            this.generos = this.gamesTotal.map((g) => g.genre).reduce((acc:string[],item)=>{
-              if(!acc.includes(item)){
-                acc.push(item);
-              }
-              return acc;
-            },[]);
         }else{
             this.games = [];  
         }

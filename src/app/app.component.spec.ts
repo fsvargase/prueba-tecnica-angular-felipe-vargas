@@ -26,10 +26,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('prueba-tecnica-angular');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('prueba-tecnica-angular app is running!');
-  });
 });
