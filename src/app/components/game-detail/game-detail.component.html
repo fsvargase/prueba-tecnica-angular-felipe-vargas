@@ -1,0 +1,21 @@
+<div class="row justify-content-center mt-5" *ngIf="game$ | async as game">
+
+    <div class="card text-bg-dark">
+        <img src="{{game.thumbnail}}" class="card-img" alt="{{game.title}}">
+        <div class="card-img-overlay">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small>Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card border-success mb-3" style="max-width: 18rem;">
+        <div class="card-header bg-transparent border-success">Header</div>
+        <div class="card-body text-success">
+          <h5 class="card-title">Success card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="card-footer bg-transparent border-success">Footer</div>
+    </div>
+  <button (click)="onGoBack()" class="btn btn-primary btn-lg mt-3">
+    Back
+  </button>
